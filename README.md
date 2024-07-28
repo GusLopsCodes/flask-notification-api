@@ -25,8 +25,7 @@ A **API de Notificações** é um serviço de notificações em tempo real desen
 
 1. **Clone o Repositório:**
    ```sh
-   git clone https://github.com/USERNAME/notification-api.git
-   cd notification-api
+   git clone https://github.com/GusLopsCodes/flask-notification-api
 
 **Configure um Ambiente Virtual (Opcional, mas Recomendado):**
 python -m venv venv
