@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Test Interface</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const socket = io();
+
+            // Subscribe
+            document.getElementById('subscribe').addEventListener('click', async () => {
+                const userId = document.getElementById('user_id').value;
+                const response = await fetch('/subscribe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ user_id: userId })
+                });
+                const data = await response.json();
+                document.getElementById('result').textContent = JSON.stringify(data);
+            });
+
+            // Unsubscribe
+            document.getElementById('unsubscribe').addEventListener('click', async () => {
+                const userId = document.getElementById('user_id').value;
+                const response = await fetch('/unsubscribe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ user_id: userId })
+                });
+                const data = await response.json();
+                document.getElementById('result').textContent = JSON.stringify(data);
+            });
+
+            // Send Notification
+            document.getElementById('send_notification').addEventListener('click', async () => {
+                const message = document.getElementById('message').value;
+                const response = await fetch('/send_notification', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message })
+                });
+                const data = await response.json();
+                document.getElementById('result').textContent = JSON.stringify(data);
+            });
+
+            // Handle notifications
+            socket.on('notification', (data) => {
+                const notifications = document.getElementById('notifications');
+                const message = document.createElement('div');
+                message.textContent = data.data;
+                notifications.appendChild(message);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>API Test Interface</h1>
+    
+    <h2>Subscribe</h2>
+    <input type="text" id="user_id" placeholder="User ID">
+    <button id="subscribe">Subscribe</button>
+    
+    <h2>Unsubscribe</h2>
+    <input type="text" id="user_id" placeholder="User ID">
+    <button id="unsubscribe">Unsubscribe</button>
+    
+    <h2>Send Notification</h2>
+    <input type="text" id="message" placeholder="Notification Message">
+    <button id="send_notification">Send Notification</button>
+    
+    <h2>Result</h2>
+    <pre id="result"></pre>
+    
+    <h2>Notifications</h2>
+    <div id="notifications"></div>
+</body>
+</html>
