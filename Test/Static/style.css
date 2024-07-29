@@ -1,0 +1,93 @@
+/* Importing Montserrat font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+/* Resetting default margin and padding */
+body, h1, h2, p, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #252525;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+section {
+    width: 80%;
+    max-width: 600px;
+}
+
+nav {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    font-size: 1rem;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #fff;
+    color: #4a90e2;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #e94e77;
+    color: #fff;
+}
+
+pre {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+#notifications {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+}
